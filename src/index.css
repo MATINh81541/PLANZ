@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #eef9d6;
+    --color-bg-warm: #f5fde6;
+    --color-text: #1a1d16;
+    --color-text-secondary: #5c6356;
+    --color-neon: #d9ff6a;
+    --color-neon-soft: #cff98a;
+    --color-mint: #ddfceb;
+    --color-pale-green: #f0ffe4;
+    --glass-white: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.55);
+    --glass-highlight: rgba(255, 255, 255, 0.65);
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    direction: rtl;
+  }
+
+  body {
+    font-family: 'Peyda', 'Vazirmatn', system-ui, sans-serif;
+    background: linear-gradient(180deg, #eef9d6 0%, #f5fde6 25%, #f0ffe4 50%, #e8f7cc 75%, #f5fde6 100%);
+    background-attachment: fixed;
+    color: var(--color-text);
+    overflow-x: hidden;
+    min-height: 100vh;
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* PLANZ brand wordmark always stays LTR */
+  .font-planz {
+    font-family: 'Plus Jakarta Sans', 'Peyda', system-ui, sans-serif;
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+
+  /* LTR override for technical fields (email, urls) */
+  .ltr-input {
+    direction: ltr;
+    text-align: left;
+    unicode-bidi: isolate;
+  }
+
+  /* Inputs are LTR by default for emails, we'll override per-field */
+  input[type="email"],
+  input[type="url"] {
+    direction: ltr;
+    text-align: left;
+  }
+
+  ::selection {
+    background: rgba(217, 255, 106, 0.35);
+    color: #1a1d16;
+  }
+}
+
+@layer utilities {
+  .glass-surface {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(20px) saturate(1.6);
+    -webkit-backdrop-filter: blur(20px) saturate(1.6);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+  }
+
+  .glass-primary {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(24px) saturate(1.7);
+    -webkit-backdrop-filter: blur(24px) saturate(1.7);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow:
+      0 4px 30px rgba(180, 210, 120, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      inset 0 0 30px rgba(217, 255, 106, 0.05);
+  }
+
+  .glass-lime {
+    background: rgba(217, 255, 106, 0.12);
+    backdrop-filter: blur(20px) saturate(1.6);
+    -webkit-backdrop-filter: blur(20px) saturate(1.6);
+    border: 1px solid rgba(217, 255, 106, 0.2);
+    box-shadow:
+      0 4px 30px rgba(180, 210, 120, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  .glass-float {
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .glass-float-lime {
+    background: rgba(217, 255, 106, 0.1);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    border: 1px solid rgba(217, 255, 106, 0.18);
+  }
+
+  .glass-shadow {
+    box-shadow:
+      0 8px 32px rgba(120, 160, 80, 0.08),
+      0 2px 8px rgba(120, 160, 80, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  .glass-shadow-lime {
+    box-shadow:
+      0 8px 32px rgba(180, 210, 120, 0.1),
+      0 2px 8px rgba(180, 210, 120, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .lime-glow {
+    filter: drop-shadow(0 0 40px rgba(217, 255, 106, 0.15)) drop-shadow(0 8px 30px rgba(217, 255, 106, 0.08));
+  }
+
+  .glass-crimson {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(24px) saturate(1.7);
+    -webkit-backdrop-filter: blur(24px) saturate(1.7);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow:
+      0 4px 30px rgba(200, 50, 90, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 0 30px rgba(220, 60, 100, 0.04);
+  }
+
+  .glass-crimson-float {
+    background: rgba(220, 60, 100, 0.1);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    border: 1px solid rgba(220, 60, 100, 0.18);
+  }
+
+  .glass-crimson-shadow {
+    box-shadow:
+      0 8px 32px rgba(200, 50, 90, 0.1),
+      0 2px 8px rgba(200, 50, 90, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  .glass-crimson-popular {
+    background: rgba(220, 60, 100, 0.14);
+    backdrop-filter: blur(24px) saturate(1.7);
+    -webkit-backdrop-filter: blur(24px) saturate(1.7);
+    border: 1.5px solid rgba(230, 80, 120, 0.3);
+    box-shadow:
+      0 8px 40px rgba(200, 50, 90, 0.18),
+      0 2px 12px rgba(200, 50, 90, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
